@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+
+// SETTINGS
+@import "assets/styles/settings/settings.config";
+@import "../node_modules/inuitcss/settings/settings.core";
+@import "assets/styles/settings/settings.global";
+
+
+// TOOLS
+@import "../node_modules/inuitcss/tools/tools.font-size";
+@import "../node_modules/inuitcss/tools/tools.clearfix";
+@import "../node_modules/inuitcss/tools/tools.hidden";
+@import "../node_modules/sass-mq/mq";
+@import "assets/styles/tools/tools.aliases";
+
+
+// GENERIC
+@import "../node_modules/inuitcss/generic/generic.box-sizing";
+@import "../node_modules/inuitcss/generic/generic.normalize";
+@import "../node_modules/inuitcss/generic/generic.reset";
+@import "../node_modules/inuitcss/generic/generic.shared";
+
+
+// ELEMENTS
+@import "../node_modules/inuitcss/elements/elements.page";
+@import "../node_modules/inuitcss/elements/elements.headings";
+@import "../node_modules/inuitcss/elements/elements.images";
+@import "../node_modules/inuitcss/elements/elements.tables";
+
+
+// OBJECTS
+//
+// Uncomment and add to this section as necessary.
+//@import "../node_modules/inuitcss/objects/objects.wrapper";
+@import "../node_modules/inuitcss/objects/objects.layout";
+@import "../node_modules/inuitcss/objects/objects.media";
+@import "../node_modules/inuitcss/objects/objects.flag";
+@import "../node_modules/inuitcss/objects/objects.list-bare";
+@import "../node_modules/inuitcss/objects/objects.list-inline";
+@import "../node_modules/inuitcss/objects/objects.box";
+@import "../node_modules/inuitcss/objects/objects.block";
+@import "../node_modules/inuitcss/objects/objects.ratio";
+@import "../node_modules/inuitcss/objects/objects.crop";
+@import "../node_modules/inuitcss/objects/objects.table";
+@import "../node_modules/inuitcss/objects/objects.pack";
+
+//KENDO UI
+@import "assets/styles/vendors/kendo-ui";
+
+
+// COMPONENTS
+//
+// Build and include your project’s UI Compoments here.
+
+
+// UTILITIES
+
+$inuit-offsets: true;
+@import "../node_modules/inuitcss/utilities/utilities.clearfix";
+@import "../node_modules/inuitcss/utilities/utilities.widths";
+@import "../node_modules/inuitcss/utilities/utilities.headings";
+@import "../node_modules/inuitcss/utilities/utilities.spacings";
+@import "../node_modules/inuitcss/utilities/utilities.responsive-spacings";
+@import "../node_modules/inuitcss/utilities/utilities.print";
+@import "../node_modules/inuitcss/utilities/utilities.hide";
+
