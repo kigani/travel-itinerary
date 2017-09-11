@@ -10,6 +10,7 @@ import { DayViewComponent } from './day-view/day-view.component';
 import { CalendarPanelComponent } from './calendar-panel/calendar-panel.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { PageHeaderComponent } from './page-header/page-header.component';
+import { TravelDetailsComponent } from './travel-details/travel-details.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     DayViewComponent,
     CalendarPanelComponent,
     PageHeaderComponent,
+    TravelDetailsComponent,
   ],
   imports: [
     BrowserModule,

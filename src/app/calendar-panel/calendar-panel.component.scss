@@ -2,12 +2,22 @@
 
 .calendar-panel {
   background-color: $color-brand-primary;
-  padding: 1rem 2rem;
   color: $color-light;
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+
+  @include mq($until: small) {
+    @include font-size(14px);
+  }
 
   &__button {
     border: none;
     background: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   &__icon {
