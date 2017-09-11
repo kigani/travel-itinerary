@@ -1,0 +1,31 @@
+.datepicker {
+  .datevalue {
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      padding-bottom: 100%;
+    }
+
+    > span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .header {
+    td:nth-child(3) {
+      display: none;
+    }
+
+    td > div {
+      display: flex;
+      justify-content: space-between;
+      flex: 1 1 auto;
+      float: none !important;
+    }
+  }
+}

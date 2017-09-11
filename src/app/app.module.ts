@@ -8,17 +8,19 @@ import { AppComponent } from './app.component';
 import { CalendarModule } from '@progress/kendo-angular-dateinputs';
 import { DayViewComponent } from './day-view/day-view.component';
 import { CalendarPanelComponent } from './calendar-panel/calendar-panel.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
     DayViewComponent,
-    CalendarPanelComponent
+    CalendarPanelComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CalendarModule
+    CalendarModule,
+    MyDatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

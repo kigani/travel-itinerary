@@ -27,6 +27,7 @@
     "@progress/kendo-theme-default": "^2.41.0",
     "core-js": "^2.4.1",
     "inuitcss": "^6.0.0-beta.5",
+    "mydatepicker": "^2.0.30",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

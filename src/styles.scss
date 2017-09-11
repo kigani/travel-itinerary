@@ -48,13 +48,16 @@
 @import "assets/styles/vendors/kendo-ui";
 
 
+//VENDORS EXTENSIONS
+@import "assets/styles/vendors-extensions/my-datepicker";
+
 // COMPONENTS
 //
 // Build and include your project’s UI Compoments here.
 
 
-// UTILITIES
 
+// UTILITIES
 $inuit-offsets: true;
 @import "../node_modules/inuitcss/utilities/utilities.clearfix";
 @import "../node_modules/inuitcss/utilities/utilities.widths";

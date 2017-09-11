@@ -1,25 +1,53 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth} from "mydatepicker";
 
 @Component({
   selector: 'app-calendar-panel',
   templateUrl: './calendar-panel.component.html',
-  styleUrls: ['./calendar-panel.component.scss']
+  styleUrls: ['./calendar-panel.component.scss'],
 })
 export class CalendarPanelComponent implements OnInit {
-  private currentDate: Date;
+  private currentDate:Date;
+  private calendarShouldBeVisible:boolean = false;
+  private currentYear: number;
+  private currentMonth: number;
+  private selDate: IMyDate;
 
-  constructor() { }
-
-  ngOnInit() {
-    this.setDate(new Date());
+  constructor() {
   }
 
-  private setDate(date: Date): void {
+  ngOnInit() {
+    let date = new Date()
+    this.setDate(date);
+    this.currentMonth = date.getMonth();
+    this.currentYear = date.getFullYear();
+
+  }
+
+  private setDate(date:Date):void {
     this.currentDate = date;
   }
 
-  private onChange(value: Date): void {
-    this.setDate(value)
+  private toggleCalendarVisibility():void {
+    this.calendarShouldBeVisible = !this.calendarShouldBeVisible;
+  }
+
+  private myDatePickerOptions: IMyDpOptions = {
+    dateFormat: 'dd.mm.yyyy',
+    showTodayBtn: false,
+    yearSelector: false,
+    monthSelector: false,
+    markDates: [{dates: [{year: 2017, month: 9, day: 14}, {year: 2017, month: 9, day: 16}], color: '#004198'}],
+    selectorWidth: '100%',
+    selectorHeight: 'auto',
+    inline: true
+  };
+
+  onDateChanged(event: IMyDateModel) {
+    // event properties are: event.date, event.jsdate, event.formatted and event.epoc
+    this.setDate(event.jsdate);
+    this.calendarShouldBeVisible = false;
+    this.selDate = event.date;
   }
 }
