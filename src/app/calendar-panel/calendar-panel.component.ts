@@ -13,6 +13,7 @@ export class CalendarPanelComponent implements OnInit {
   private currentYear: number;
   private currentMonth: number;
   private selDate: IMyDate;
+  @ViewChild('mydp') myDatepicker;
 
   constructor() {
   }
@@ -22,11 +23,14 @@ export class CalendarPanelComponent implements OnInit {
     this.setDate(date);
     this.currentMonth = date.getMonth();
     this.currentYear = date.getFullYear();
-
   }
 
   private setDate(date:Date):void {
     this.currentDate = date;
+  }
+
+  private setMonthLabel(): void {
+    this.myDatepicker.visibleMonth.monthTxt = this.currentMonth + ' ' + this.currentYear;
   }
 
   private toggleCalendarVisibility():void {

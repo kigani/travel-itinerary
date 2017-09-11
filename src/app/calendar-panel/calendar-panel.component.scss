@@ -1,0 +1,16 @@
+@import "../../assets/styles/shared";
+
+.calendar-panel {
+  background-color: $color-brand-primary;
+  padding: 1rem 2rem;
+  color: $color-light;
+
+  &__button {
+    border: none;
+    background: none;
+  }
+
+  &__icon {
+    color: $color-light;
+  }
+}

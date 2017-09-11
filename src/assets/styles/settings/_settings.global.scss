@@ -7,3 +7,24 @@
 // Standardise some UI treatments.
 $global-radius: 3px !default;
 $global-transition: all 300ms ease-in-out !default;
+
+$font-family: "Open Sans", sans-serif;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+$color-brand-primary: #326295;
+$color-brand-secondary: #0087E6;
+
+$color-light: #ffffff;
+$color-dark: #122031;
+
+$color--grey: #B0B6BE;
+$color--grey-dark: #787887; //rgb(120, 120, 135);
+
+
+$mq-breakpoints: (
+  small: 480px,
+  medium: 769px,
+  large: 1025px,
+  extra-large: 1400px
+)

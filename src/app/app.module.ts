@@ -9,12 +9,14 @@ import { CalendarModule } from '@progress/kendo-angular-dateinputs';
 import { DayViewComponent } from './day-view/day-view.component';
 import { CalendarPanelComponent } from './calendar-panel/calendar-panel.component';
 import { MyDatePickerModule } from 'mydatepicker';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DayViewComponent,
     CalendarPanelComponent,
+    PageHeaderComponent,
   ],
   imports: [
     BrowserModule,

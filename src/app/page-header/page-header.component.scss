@@ -1,0 +1,54 @@
+@import "../../assets/styles/shared";
+
+.page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &__event-logo {
+    width: 100px;
+    min-width: 80px;
+  }
+
+  &__event {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    @include font-size(18px);
+    color: $color-brand-primary;
+    margin-bottom: 0;
+
+    @include mq($until: small) {
+      @include font-size(14px);
+    }
+  }
+
+  &__time {
+    @include font-size(12px);
+    color: $color--grey-dark;
+  }
+
+  &__toggle {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    margin: 0 1rem;
+  }
+
+  &__user {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &-image {
+    }
+
+  }
+}
