@@ -1,11 +1,11 @@
 <section class="details">
   <header class="details__header">
     <h2 class="details__title u-hidden">Flight</h2>
-    <i class="k-icon k-i-heart details__icon"></i>
+    <i class="k-icon details__icon" [ngClass]="icon"></i>
     <strong class="details__status">Confirmed</strong>
   </header>
   <div>
-    <dl class="details-list">
+    <dl class="details-list" *ngIf="type == travelDetailsType.Plane">
       <dt class="details-list__label">From:</dt>
       <dd class="details-list__value">Zurich(ZRH)</dd>
       <dt class="details-list__label">To:</dt>
@@ -17,5 +17,29 @@
       <dt class="details-list__label">Flight number:</dt>
       <dd class="details-list__value">LX 1326</dd>
     </dl>
+
+    <dl class="details-list" *ngIf="type == travelDetailsType.Accomodation">
+      <dt class="details-list__label">Hotel:</dt>
+      <dd class="details-list__value">Moscow Hotel Mercure Arbat</dd>
+      <dt class="details-list__label">Check in:</dt>
+      <dd class="details-list__value">12:00</dd>
+      <dt class="details-list__label">Check out:</dt>
+      <dd class="details-list__value">12:00</dd>
+    </dl>
+
+    <dl class="details-list" *ngIf="type == travelDetailsType.Transport">
+      <dt class="details-list__label">From:</dt>
+      <dd class="details-list__value">Airport</dd>
+      <dt class="details-list__label">To:</dt>
+      <dd class="details-list__value">Moscow Hotel</dd>
+      <dt class="details-list__label">Pick up:</dt>
+      <dd class="details-list__value">17:30</dd>
+      <dt class="details-list__label">Drop off:</dt>
+      <dd class="details-list__value">19:20</dd>
+    </dl>
   </div>
+  <footer>
+    <button>Contact us</button>
+    <button>Add to calendar</button>
+  </footer>
 </section>

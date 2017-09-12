@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TravelDetailsType} from "../travel-details/TravelDetailsType";
 
 @Component({
   selector: 'app-day-view',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./day-view.component.scss']
 })
 export class DayViewComponent implements OnInit {
-
-  constructor() { }
+  travelDetailsType = TravelDetailsType;
+  constructor() {
+  }
 
   ngOnInit() {
   }
+  setTravelDetailsType(type) {
 
+  }
 }

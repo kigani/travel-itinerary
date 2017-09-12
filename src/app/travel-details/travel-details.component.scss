@@ -2,7 +2,7 @@
 
 
 .details {
-
+  margin-bottom: 2rem;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -27,8 +27,7 @@
     color: $color-dark;
     overflow: hidden;
     padding: 1rem;
-
-
+    margin-bottom: 0;
 
     &__label,
     &__value {
