@@ -27,5 +27,12 @@
       flex: 1 1 auto;
       float: none !important;
     }
+    .headermonthtxt {
+      width: auto;
+      max-width: none;
+    }
+  }
+  .markdate {
+    z-index: 1;
   }
 }

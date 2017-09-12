@@ -1,6 +1,7 @@
 import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth} from "mydatepicker";
+import {IMyCalendarViewChanged} from "mydatepicker/index";
 
 @Component({
   selector: 'app-calendar-panel',
@@ -19,7 +20,7 @@ export class CalendarPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    let date = new Date()
+    let date = new Date();
     this.setDate(date);
     this.currentMonth = date.getMonth();
     this.currentYear = date.getFullYear();
@@ -27,10 +28,6 @@ export class CalendarPanelComponent implements OnInit {
 
   private setDate(date:Date):void {
     this.currentDate = date;
-  }
-
-  private setMonthLabel(): void {
-    this.myDatepicker.visibleMonth.monthTxt = this.currentMonth + ' ' + this.currentYear;
   }
 
   private toggleCalendarVisibility():void {
@@ -53,5 +50,13 @@ export class CalendarPanelComponent implements OnInit {
     this.setDate(event.jsdate);
     this.calendarShouldBeVisible = false;
     this.selDate = event.date;
+  }
+
+  createMonthLabel(year: number):void {
+    this.myDatepicker.visibleMonth.monthTxt = this.myDatepicker.visibleMonth.monthTxt + ' ' + year;
+  }
+
+  onCalendarViewChanged(event: IMyCalendarViewChanged) {
+    this.createMonthLabel(event.year)
   }
 }
