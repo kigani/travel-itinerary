@@ -2,40 +2,40 @@
   <header class="details__header">
     <h2 class="details__title u-hidden">Flight</h2>
     <i class="k-icon details__icon" [ngClass]="icon"></i>
-    <strong class="details__status">Confirmed</strong>
+    <strong class="details__status">{{data.status}}</strong>
   </header>
   <div>
-    <dl class="details-list" *ngIf="type == travelDetailsType.Plane">
+    <dl class="details-list" *ngIf="data.type == travelDetailsType.Flight">
       <dt class="details-list__label">From:</dt>
-      <dd class="details-list__value">Zurich(ZRH)</dd>
+      <dd class="details-list__value">{{data.from}}</dd>
       <dt class="details-list__label">To:</dt>
-      <dd class="details-list__value">Moscow(DME)</dd>
+      <dd class="details-list__value">{{data.to}}</dd>
       <dt class="details-list__label">Departure:</dt>
-      <dd class="details-list__value">12:20</dd>
+      <dd class="details-list__value">{{data.departure}}</dd>
       <dt class="details-list__label">Arrival:</dt>
-      <dd class="details-list__value">16:45</dd>
+      <dd class="details-list__value">{{data.arrival}}</dd>
       <dt class="details-list__label">Flight number:</dt>
-      <dd class="details-list__value">LX 1326</dd>
+      <dd class="details-list__value">{{data.flightNumber}}</dd>
     </dl>
 
-    <dl class="details-list" *ngIf="type == travelDetailsType.Accomodation">
+    <dl class="details-list" *ngIf="data.type == travelDetailsType.Accomodation">
       <dt class="details-list__label">Hotel:</dt>
-      <dd class="details-list__value">Moscow Hotel Mercure Arbat</dd>
+      <dd class="details-list__value">{{data.name}}</dd>
       <dt class="details-list__label">Check in:</dt>
-      <dd class="details-list__value">12:00</dd>
+      <dd class="details-list__value">{{data.checkInTime}}</dd>
       <dt class="details-list__label">Check out:</dt>
-      <dd class="details-list__value">12:00</dd>
+      <dd class="details-list__value">{{data.checkOutTime}}</dd>
     </dl>
 
-    <dl class="details-list" *ngIf="type == travelDetailsType.Transport">
+    <dl class="details-list" *ngIf="data.type == travelDetailsType.Transport">
       <dt class="details-list__label">From:</dt>
-      <dd class="details-list__value">Airport</dd>
+      <dd class="details-list__value">{{data.from}}</dd>
       <dt class="details-list__label">To:</dt>
-      <dd class="details-list__value">Moscow Hotel</dd>
+      <dd class="details-list__value">{{data.to}}</dd>
       <dt class="details-list__label">Pick up:</dt>
-      <dd class="details-list__value">17:30</dd>
+      <dd class="details-list__value">{{data.pickUpTime}}</dd>
       <dt class="details-list__label">Drop off:</dt>
-      <dd class="details-list__value">19:20</dd>
+      <dd class="details-list__value">{{data.dropOffTime}}</dd>
     </dl>
   </div>
   <footer>

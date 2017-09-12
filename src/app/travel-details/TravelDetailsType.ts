@@ -1,5 +1,5 @@
 export enum TravelDetailsType {
-  Plane,
-  Accomodation,
-  Transport
+  Flight = <any>'flight',
+  Accomodation = <any>'accomodation',
+  Transport = <any>'transport'
 }

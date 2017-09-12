@@ -4,11 +4,11 @@ import {TravelDetailsType} from "./TravelDetailsType";
 @Component({
   selector: 'app-travel-details',
   templateUrl: './travel-details.component.html',
-  styleUrls: ['./travel-details.component.scss']
+  styleUrls: ['./travel-details.component.scss'],
 })
 export class TravelDetailsComponent implements OnInit {
   travelDetailsType = TravelDetailsType;
-  @Input() type: TravelDetailsType;
+  @Input() data;
   icon: string;
 
   constructor() {
@@ -20,8 +20,8 @@ export class TravelDetailsComponent implements OnInit {
 
 
   setIconClass(): void {
-    switch (this.type) {
-      case this.travelDetailsType.Plane:
+    switch (this.data.type) {
+      case this.travelDetailsType.Flight:
         this.icon = 'k-i-heart';
         break;
       case this.travelDetailsType.Accomodation:

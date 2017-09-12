@@ -1,7 +1,9 @@
 <main>
   <app-page-header></app-page-header>
   <app-calendar-panel></app-calendar-panel>
-  <app-travel-details [type]="travelDetailsType.Plane"></app-travel-details>
-  <app-travel-details [type]="travelDetailsType.Transport"></app-travel-details>
-  <app-travel-details [type]="travelDetailsType.Accomodation"></app-travel-details>
+  <ul class="o-list-bare">
+    <li class="o-list-bare__item" *ngFor="let details of travelDetails">
+      <app-travel-details [data]="details"></app-travel-details>
+    </li>
+  </ul>
 </main>

@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {TravelDetailsType} from "../travel-details/TravelDetailsType";
+import {TravelDetailsService} from "../services/travel-details.service";
 
 @Component({
   selector: 'app-day-view',
   templateUrl: './day-view.component.html',
-  styleUrls: ['./day-view.component.scss']
+  styleUrls: ['./day-view.component.scss'],
+  providers: [TravelDetailsService]
 })
 export class DayViewComponent implements OnInit {
-  travelDetailsType = TravelDetailsType;
-  constructor() {
+  travelDetailsType;
+  travelDetails;
+  constructor(private traveldetailsService: TravelDetailsService) {
   }
 
   ngOnInit() {
+    this.travelDetails = this.traveldetailsService.getTravelDetails().schedule;
   }
+
   setTravelDetailsType(type) {
 
   }
