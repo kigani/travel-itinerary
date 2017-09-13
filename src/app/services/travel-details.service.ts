@@ -11,10 +11,16 @@ export class TravelDetailsService {
   constructor(private http: Http) {
   }
 
-  getTravelDetails(id: string, date: string): Promise<DailySchedule[]> {
-    const url = this.travelDetailsUrl + '?userId=' + id + '&date=' + date;
+  getTravelDetails(userId, date: string): Promise<DailySchedule[]> {
+    const url = this.travelDetailsUrl + '?userId=' + userId + '&date=' + date;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
+  }
 
-    console.log(url)
+  getInitialTravelDetails(userId): Promise<DailySchedule[]> {
+    const url = this.travelDetailsUrl + '?userId=' + userId + '&_sort=date&_limit=1';
     return this.http.get(url)
       .toPromise()
       .then(response => response.json())

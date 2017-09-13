@@ -13,8 +13,6 @@ import * as user from '../../shared/user.mock';
 export class CalendarPanelComponent implements OnInit {
   private currentDate:Date;
   private calendarShouldBeVisible:boolean = false;
-  private currentYear: number;
-  private currentMonth: number;
   private myDatePickerOptions: IMyDpOptions;
   @ViewChild('mydp') myDatepicker;
   @Output() newDateSelect: EventEmitter<any> = new EventEmitter();
@@ -23,15 +21,7 @@ export class CalendarPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    let date = new Date();
-    this.setDate(date);
-    this.currentMonth = date.getMonth();
-    this.currentYear = date.getFullYear();
     this.getEventDates(user.userId);
-  }
-
-  private setDate(date:Date):void {
-    this.currentDate = date;
   }
 
   private toggleCalendarVisibility():void {
@@ -39,7 +29,7 @@ export class CalendarPanelComponent implements OnInit {
   }
 
   private createDateObject(dateStr) {
-    let keysArr = ['day', 'month', 'year'];
+    let keysArr = ['year', 'month', 'day'];
     let valuesArr = dateStr.split('-').map((el)=> {return  parseInt(el)});
 
     //Convert Array of dates' string into object
@@ -50,14 +40,16 @@ export class CalendarPanelComponent implements OnInit {
   }
 
   private getEventDates(userId): void {
+    let date: Date;
     this.eventService.getEvent(userId).then(eventDetails => {
+      this.currentDate = new Date(eventDetails[0].dates.sort()[0]);
       this.createCalendar(eventDetails[0].dates.map(this.createDateObject));
     });
   }
 
   private createCalendar(markedDays): void {
     this.myDatePickerOptions = {
-      dateFormat: 'dd-mm-yyyy',
+      dateFormat: 'yyyy-mm-dd',
       showTodayBtn: false,
       yearSelector: false,
       monthSelector: false,
@@ -70,7 +62,7 @@ export class CalendarPanelComponent implements OnInit {
 
   private onDateChanged(event: IMyDateModel) {
     // event properties are: event.date, event.jsdate, event.formatted and event.epoc
-    this.setDate(event.jsdate);
+    this.currentDate = event.jsdate;
     this.calendarShouldBeVisible = false;
     this.newDateSelect.emit(event.formatted);
   }

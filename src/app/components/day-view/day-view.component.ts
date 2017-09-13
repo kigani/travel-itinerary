@@ -15,7 +15,10 @@ export class DayViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDailySchedule(user.userId, '15-09-2017');
+    this.traveldetailsService.getInitialTravelDetails(user.userId).then(travelDetails => {
+      this.dailySchedule = travelDetails[0].schedule;
+    })
+
   }
 
   getDailySchedule(userId, date): void {

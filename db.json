@@ -1,7 +1,37 @@
 {
   "travelDetails": [
     {
-      "date": "15-09-2017",
+      "date": "2017-10-14",
+      "userId": 123,
+      "schedule": [
+        {
+          "type": "transport",
+          "status": "Confirmed",
+          "from": "Moscow Airport",
+          "to": "Hotel",
+          "pickUpTime": "12:20",
+          "dropOffTime": "12:20",
+          "serviceType": "pool"
+        }
+      ]
+    },
+    {
+      "date": "2017-09-20",
+      "userId": 123,
+      "schedule": [
+        {
+          "type": "transport",
+          "status": "Confirmed",
+          "from": "Moscow Airport",
+          "to": "Hotel",
+          "pickUpTime": "12:20",
+          "dropOffTime": "12:20",
+          "serviceType": "pool"
+        }
+      ]
+    },
+    {
+      "date": "2017-09-15",
       "userId": 123,
       "schedule": [
         {
@@ -32,7 +62,7 @@
       ]
     },
     {
-      "date": "17-09-2017",
+      "date": "2017-09-17",
       "userId": 123,
       "schedule": [
         {
@@ -68,7 +98,7 @@
       "name": "FIFA Beach Soccer World Cup Bahamas 2017",
       "timeRange": "27 April - 7 May",
       "userId": 123,
-      "dates": ["15-09-2017", "17-09-2017"]
+      "dates": ["2017-09-20", "2017-09-15",  "2017-10-14", "2017-09-17"]
     }
   ]
 }
