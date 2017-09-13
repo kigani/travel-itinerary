@@ -2,7 +2,7 @@
   "travelDetails": [
     {
       "date": "15-09-2017",
-      "userId": "123",
+      "userId": 123,
       "schedule": [
         {
           "type": "flight",
@@ -33,7 +33,7 @@
     },
     {
       "date": "17-09-2017",
-      "userId": "123",
+      "userId": 123,
       "schedule": [
         {
           "type": "transport",
@@ -67,7 +67,7 @@
     {
       "name": "FIFA Beach Soccer World Cup Bahamas 2017",
       "timeRange": "27 April - 7 May",
-      "userId": "123",
+      "userId": 123,
       "dates": ["15-09-2017", "17-09-2017"]
     }
   ]

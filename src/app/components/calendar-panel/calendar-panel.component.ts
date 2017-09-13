@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth, IMyCalendarViewChanged} from "mydatepicker";
 import {TravelDetailsService} from "../../services/travel-details.service";
 import {EventService} from "../../services/event.service";
+import * as user from '../../shared/user.mock';
 
 @Component({
   selector: 'app-calendar-panel',
@@ -26,7 +27,7 @@ export class CalendarPanelComponent implements OnInit {
     this.setDate(date);
     this.currentMonth = date.getMonth();
     this.currentYear = date.getFullYear();
-    this.getEventDates('123');
+    this.getEventDates(user.userId);
   }
 
   private setDate(date:Date):void {

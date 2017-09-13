@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EventService} from "../../services/event.service";
+import * as user from '../../shared/user.mock';
 
 @Component({
   selector: 'app-page-header',
@@ -13,7 +14,7 @@ export class PageHeaderComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
-    this.getEventDetails('123');
+    this.getEventDetails(user.userId);
   }
 
   private getEventDetails(userId): void {
