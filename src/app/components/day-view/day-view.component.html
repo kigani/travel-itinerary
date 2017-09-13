@@ -1,9 +1,10 @@
 <main>
   <app-page-header></app-page-header>
-  <app-calendar-panel></app-calendar-panel>
-  <ul class="o-list-bare">
-    <li class="o-list-bare__item" *ngFor="let details of travelDetails">
-      <app-travel-details [data]="details"></app-travel-details>
+  <app-calendar-panel (newDateSelect)="onNewDateSelect($event)"></app-calendar-panel>
+  <ul class="o-list-bare" *ngIf="dailySchedule;else no_results">
+    <li class="o-list-bare__item" *ngFor="let item of dailySchedule">
+      <app-travel-details [data]="item"></app-travel-details>
     </li>
   </ul>
+  <ng-template #no_results>No results for that day...</ng-template>
 </main>

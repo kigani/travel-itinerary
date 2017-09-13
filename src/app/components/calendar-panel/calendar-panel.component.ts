@@ -1,6 +1,8 @@
-import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
+import { Component, NgModule, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth, IMyCalendarViewChanged} from "mydatepicker";
+import {TravelDetailsService} from "../../services/travel-details.service";
+import {EventService} from "../../services/event.service";
 
 @Component({
   selector: 'app-calendar-panel',
@@ -12,10 +14,11 @@ export class CalendarPanelComponent implements OnInit {
   private calendarShouldBeVisible:boolean = false;
   private currentYear: number;
   private currentMonth: number;
-  private selDate: IMyDate;
+  private myDatePickerOptions: IMyDpOptions;
   @ViewChild('mydp') myDatepicker;
+  @Output() newDateSelect: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
+  constructor(private eventService: EventService) {
   }
 
   ngOnInit() {
@@ -23,6 +26,7 @@ export class CalendarPanelComponent implements OnInit {
     this.setDate(date);
     this.currentMonth = date.getMonth();
     this.currentYear = date.getFullYear();
+    this.getEventDates('123');
   }
 
   private setDate(date:Date):void {
@@ -33,29 +37,48 @@ export class CalendarPanelComponent implements OnInit {
     this.calendarShouldBeVisible = !this.calendarShouldBeVisible;
   }
 
-  private myDatePickerOptions: IMyDpOptions = {
-    dateFormat: 'dd.mm.yyyy',
-    showTodayBtn: false,
-    yearSelector: false,
-    monthSelector: false,
-    markDates: [{dates: [{year: 2017, month: 9, day: 14}, {year: 2017, month: 9, day: 16}], color: '#004198'}],
-    selectorWidth: '100%',
-    selectorHeight: 'auto',
-    inline: true
-  };
+  private createDateObject(dateStr) {
+    let keysArr = ['day', 'month', 'year'];
+    let valuesArr = dateStr.split('-').map((el)=> {return  parseInt(el)});
 
-  onDateChanged(event: IMyDateModel) {
+    //Convert Array of dates' string into object
+    return keysArr.reduce((prev, val, i)=>{
+      prev[val] = valuesArr[i];
+      return prev;
+    }, {})
+  }
+
+  private getEventDates(userId): void {
+    this.eventService.getEvent(userId).then(eventDetails => {
+      this.createCalendar(eventDetails[0].dates.map(this.createDateObject));
+    });
+  }
+
+  private createCalendar(markedDays): void {
+    this.myDatePickerOptions = {
+      dateFormat: 'dd-mm-yyyy',
+      showTodayBtn: false,
+      yearSelector: false,
+      monthSelector: false,
+      markDates: [{dates: markedDays, color: '#004198'}],
+      selectorWidth: '100%',
+      selectorHeight: 'auto',
+      inline: true
+    };
+  }
+
+  private onDateChanged(event: IMyDateModel) {
     // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     this.setDate(event.jsdate);
     this.calendarShouldBeVisible = false;
-    this.selDate = event.date;
+    this.newDateSelect.emit(event.formatted);
   }
 
-  createMonthLabel(year: number):void {
+  private createMonthLabel(year: number):void {
     this.myDatepicker.visibleMonth.monthTxt = this.myDatepicker.visibleMonth.monthTxt + ' ' + year;
   }
 
-  onCalendarViewChanged(event: IMyCalendarViewChanged) {
+  private onCalendarViewChanged(event: IMyCalendarViewChanged) {
     this.createMonthLabel(event.year)
   }
 }

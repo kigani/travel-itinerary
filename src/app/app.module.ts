@@ -12,6 +12,8 @@ import { CalendarPanelComponent } from './components/calendar-panel/calendar-pan
 import { MyDatePickerModule } from 'mydatepicker';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { TravelDetailsComponent } from './components/travel-details/travel-details.component';
+import {TravelDetailsService} from "./services/travel-details.service";
+import {EventService} from "./services/event.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { TravelDetailsComponent } from './components/travel-details/travel-detai
     MyDatePickerModule,
     HttpModule
   ],
-  providers: [],
+  providers: [TravelDetailsService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

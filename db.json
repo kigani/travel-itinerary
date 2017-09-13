@@ -1,7 +1,7 @@
 {
   "travelDetails": [
     {
-      "date": "2017-09-15",
+      "date": "15-09-2017",
       "userId": "123",
       "schedule": [
         {
@@ -32,17 +32,17 @@
       ]
     },
     {
-      "date": "2017-09-17",
+      "date": "17-09-2017",
       "userId": "123",
       "schedule": [
         {
-          "type": "flight",
+          "type": "transport",
           "status": "Confirmed",
-          "from": "Zurich (ZRH)",
-          "to": "Moscow (DME)",
-          "departure": "12:20",
-          "arrival": "12:20",
-          "flightNumber": "LX 1345"
+          "from": "Moscow Airport",
+          "to": "Hotel",
+          "pickUpTime": "12:20",
+          "dropOffTime": "12:20",
+          "serviceType": "pool"
         },
         {
           "type": "transport",
@@ -61,6 +61,14 @@
           "checkOutTime": "14/07/2017 12:00"
         }
       ]
+    }
+  ],
+  "events": [
+    {
+      "name": "FIFA Beach Soccer World Cup Bahamas 2017",
+      "timeRange": "27 April - 7 May",
+      "userId": "123",
+      "dates": ["15-09-2017", "17-09-2017"]
     }
   ]
 }
