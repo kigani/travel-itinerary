@@ -15,10 +15,11 @@ export class DayViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.travelDetails = this.traveldetailsService.getTravelDetails().schedule;
+    this.getTravelDetails();
   }
 
-  setTravelDetailsType(type) {
-
+  getTravelDetails(): void {
+     this.traveldetailsService.getTravelDetails('123', '2017-09-15').then(travelDetails => {
+       this.travelDetails = travelDetails[0].schedule});
   }
 }
