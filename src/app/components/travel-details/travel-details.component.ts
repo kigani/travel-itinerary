@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {TravelDetailsType} from "./TravelDetailsType";
+
+enum TravelDetailsType {
+  Flight = <any>'flight',
+  Accomodation = <any>'accomodation',
+  Transport = <any>'transport'
+}
 
 @Component({
   selector: 'app-travel-details',
@@ -17,7 +22,6 @@ export class TravelDetailsComponent implements OnInit {
   ngOnInit() {
     this.setIconClass();
   }
-
 
   setIconClass(): void {
     switch (this.data.type) {

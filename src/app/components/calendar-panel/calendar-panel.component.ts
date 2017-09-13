@@ -1,7 +1,6 @@
 import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth} from "mydatepicker";
-import {IMyCalendarViewChanged} from "mydatepicker/index";
+import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth, IMyCalendarViewChanged} from "mydatepicker";
 
 @Component({
   selector: 'app-calendar-panel',

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {DailySchedule} from "./mock-travel-details";
 import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {DailySchedule} from "../components/travel-details/daily-schedule";
+
 
 @Injectable()
 export class TravelDetailsService {

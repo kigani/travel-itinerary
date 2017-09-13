@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageHeaderComponent } from './page-header.component';
+import { PageHeaderComponent } from './page-header.component.ts';
 
 describe('PageHeaderComponent', () => {
   let component: PageHeaderComponent;

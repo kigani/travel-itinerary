@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TravelDetailsType} from "../travel-details/TravelDetailsType";
-import {TravelDetailsService} from "../services/travel-details.service";
+import {TravelDetailsService} from "../../services/travel-details.service";
 
 @Component({
   selector: 'app-day-view',
@@ -9,7 +8,6 @@ import {TravelDetailsService} from "../services/travel-details.service";
   providers: [TravelDetailsService]
 })
 export class DayViewComponent implements OnInit {
-  travelDetailsType;
   travelDetails;
   constructor(private traveldetailsService: TravelDetailsService) {
   }
