@@ -21,7 +21,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 const appRoutes: Routes = [
   {path: '', component: MatchesComponent},
   {path: 'calendar', component: CalendarComponent},
-  {path: 'day-view', component: DayViewComponent},
+  {path: 'daily-schedule/:id', component: DayViewComponent},
 ];
 
 @NgModule({

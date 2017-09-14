@@ -3,6 +3,7 @@ import {TravelDetailsService} from "../../services/travel-details.service";
 import {TravelDetails} from "../travel-details/travel-details";
 import * as user from '../../shared/user.mock';
 import {Subscription} from "rxjs/Subscription";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-day-view',
@@ -11,20 +12,26 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class DayViewComponent implements OnInit {
   dailySchedule: TravelDetails[];
-  subscription: Subscription;
-  constructor(private travelDetailsService: TravelDetailsService) {
+  dateChangeSubscription: Subscription;
+  pageChangeSubscription: Subscription;
+  constructor(private travelDetailsService: TravelDetailsService,  private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.subscription = this.travelDetailsService.travelDetailsData.subscribe(e => {
+    this.dateChangeSubscription = this.travelDetailsService.travelDetailsData.subscribe(e => {
       if(e != null) {
         this.getDailySchedule(user.userId, e);
       }
     });
+
+    this.pageChangeSubscription = this.route.params.subscribe(params => {
+     this.getDailySchedule(user.userId, params['id'])
+    });
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.dateChangeSubscription.unsubscribe();
+    this.pageChangeSubscription.unsubscribe();
   }
 
   getDailySchedule(userId, date): void {
@@ -34,6 +41,6 @@ export class DayViewComponent implements OnInit {
         } else {
           this.dailySchedule = null;
         }
-      });
+     });
   }
 }

@@ -1,5 +1,9 @@
-<ul>
-  <li>
-    <a routerLink="/day-view">Match 1</a>
+<ul class="o-list-bare">
+  <li class="o-list-bare__item" *ngFor="let event of events">
+    <h2>
+      <a [routerLink]="['/daily-schedule', event.date]">{{event.eventName}}</a>
+    </h2>
+    {{event.date}}, {{event.hour}}<br>
+    {{event.city}}
   </li>
 </ul>

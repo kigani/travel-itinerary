@@ -37,6 +37,22 @@
       <dt class="details-list__label">Drop off:</dt>
       <dd class="details-list__value">{{data.dropOffTime}}</dd>
     </dl>
+    <div *ngIf="data.type == travelDetailsType.Event">
+      <h3>{{data.eventName}}</h3>
+      <dl class="details-list" >
+        <dt class="details-list__label">Site:</dt>
+        <dd class="details-list__value">{{data.site}}</dd>
+        <dt class="details-list__label">City:</dt>
+        <dd class="details-list__value">{{data.city}}</dd>
+        <dt class="details-list__label">Date:</dt>
+        <dd class="details-list__value">{{data.date}}</dd>
+        <dt class="details-list__label">Hour:</dt>
+        <dd class="details-list__value">{{data.hour}}</dd>
+        <dt class="details-list__label">Tickets:</dt>
+        <dd class="details-list__value">{{data.tickets}}</dd>
+      </dl>
+    </div>
+
   </div>
   <footer>
     <button>Contact us</button>

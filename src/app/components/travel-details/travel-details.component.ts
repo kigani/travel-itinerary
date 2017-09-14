@@ -3,7 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 enum TravelDetailsType {
   Flight = <any>'flight',
   Accomodation = <any>'accomodation',
-  Transport = <any>'transport'
+  Transport = <any>'transport',
+  Event = <any>'event'
 }
 
 @Component({

@@ -53,6 +53,14 @@
           "serviceType": "pool"
         },
         {
+          "type": "event",
+          "eventName": "Russia - New Zealand",
+          "site": "Moscow arena",
+          "city": "Moscow",
+          "hour": "18:00",
+          "tickets": 1
+        },
+        {
           "type": "accomodation",
           "status": "",
           "name": "Hotel Name Goes Here",

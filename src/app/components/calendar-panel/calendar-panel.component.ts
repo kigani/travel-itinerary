@@ -65,11 +65,11 @@ export class CalendarPanelComponent implements OnInit {
     // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     this.currentDate = event.jsdate;
     this.traveldetailsService.travelDetailsData.next(event.formatted);
-    this.redirect();
+    this.redirect(event.formatted);
   }
 
-  redirect() {
-    this.router.navigate(['./day-view']);
+  redirect(date: string) {
+    this.router.navigate(['./daily-schedule/'+date]);
   }
 
   private createMonthLabel(year: number):void {
