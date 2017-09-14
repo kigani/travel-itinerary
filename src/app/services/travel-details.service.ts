@@ -6,7 +6,7 @@ import {DailySchedule} from "../components/travel-details/daily-schedule";
 
 @Injectable()
 export class TravelDetailsService {
-  private travelDetailsUrl: string = 'http://localhost:3000/travelDetails';
+  private travelDetailsUrl: string = 'api/travelDetails';
 
   constructor(private http: Http) {
   }

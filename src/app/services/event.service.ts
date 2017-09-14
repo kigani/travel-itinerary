@@ -11,7 +11,7 @@ interface Event {
 
 @Injectable()
 export class EventService {
-  private eventUrl: string = 'http://localhost:3000/events';
+  private eventUrl: string =  'api/events';
 
   constructor(private http: Http) {
   }
