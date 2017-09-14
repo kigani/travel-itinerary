@@ -2,25 +2,19 @@ import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {DailySchedule} from "../components/travel-details/daily-schedule";
-
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class TravelDetailsService {
   private travelDetailsUrl: string = 'api/travelDetails';
+  travelDetailsData: BehaviorSubject<string>;
 
   constructor(private http: Http) {
+    this.travelDetailsData = new BehaviorSubject<string>('');
   }
 
   getTravelDetails(userId, date: string): Promise<DailySchedule[]> {
     const url = this.travelDetailsUrl + '?userId=' + userId + '&date=' + date;
-    return this.http.get(url)
-      .toPromise()
-      .then(response => response.json())
-      .catch(this.handleError);
-  }
-
-  getInitialTravelDetails(userId): Promise<DailySchedule[]> {
-    const url = this.travelDetailsUrl + '?userId=' + userId + '&_sort=date&_limit=1';
     return this.http.get(url)
       .toPromise()
       .then(response => response.json())

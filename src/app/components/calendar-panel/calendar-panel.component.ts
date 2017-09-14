@@ -4,6 +4,9 @@ import {MyDatePicker, IMyDpOptions, IMyDateModel, IMyDate,IMyDefaultMonth, IMyCa
 import {TravelDetailsService} from "../../services/travel-details.service";
 import {EventService} from "../../services/event.service";
 import * as user from '../../shared/user.mock';
+import {Router} from '@angular/router';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
 
 @Component({
   selector: 'app-calendar-panel',
@@ -16,16 +19,14 @@ export class CalendarPanelComponent implements OnInit {
   private myDatePickerOptions: IMyDpOptions;
   @ViewChild('mydp') myDatepicker;
   @Output() newDateSelect: EventEmitter<any> = new EventEmitter();
+  travelDetailsData: BehaviorSubject<string>;
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private traveldetailsService: TravelDetailsService, private router: Router) {
+    this.travelDetailsData = new BehaviorSubject<string>('');
   }
 
   ngOnInit() {
     this.getEventDates(user.userId);
-  }
-
-  private toggleCalendarVisibility():void {
-    this.calendarShouldBeVisible = !this.calendarShouldBeVisible;
   }
 
   private createDateObject(dateStr) {
@@ -63,8 +64,12 @@ export class CalendarPanelComponent implements OnInit {
   private onDateChanged(event: IMyDateModel) {
     // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     this.currentDate = event.jsdate;
-    this.calendarShouldBeVisible = false;
-    this.newDateSelect.emit(event.formatted);
+    this.traveldetailsService.travelDetailsData.next(event.formatted);
+    this.redirect();
+  }
+
+  redirect() {
+    this.router.navigate(['./day-view']);
   }
 
   private createMonthLabel(year: number):void {
