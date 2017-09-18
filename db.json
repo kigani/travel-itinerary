@@ -53,8 +53,8 @@
           "serviceType": "pool"
         },
         {
-          "type": "event",
-          "eventName": "Russia - New Zealand",
+          "type": "match",
+          "name": "Russia - New Zealand",
           "site": "Moscow arena",
           "city": "Moscow",
           "hour": "18:00",

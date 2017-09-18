@@ -1,9 +1,9 @@
 <ul class="o-list-bare">
-  <li class="o-list-bare__item" *ngFor="let event of events">
+  <li class="o-list-bare__item" *ngFor="let match of matches">
     <h2>
-      <a [routerLink]="['/daily-schedule', event.date]">{{event.eventName}}</a>
+      <a [routerLink]="['/daily-schedule', match.date]">{{match.name}}</a>
     </h2>
-    {{event.date}}, {{event.hour}}<br>
-    {{event.city}}
+    {{match.date}}, {{match.hour}}<br>
+    {{match.city}}
   </li>
 </ul>

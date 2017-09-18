@@ -9,7 +9,7 @@ import {TravelDetails} from "../travel-details/travel-details";
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent implements OnInit {
-  events: TravelDetails[] = [];
+  matches: TravelDetails[] = [];
   constructor(private travelDetailsService: TravelDetailsService) { }
 
   ngOnInit() {
@@ -22,9 +22,9 @@ export class MatchesComponent implements OnInit {
       for(var i in travelDetails) {
        var schedule = travelDetails[i].schedule;
         for(var j in schedule) {
-          if(schedule[j].type == 'event') {
-            schedule[j]['date'] = travelDetails[i].date
-            this.events.push(schedule[j]);
+          if(schedule[j].type == 'match') {
+            schedule[j]['date'] = travelDetails[i].date;
+            this.matches.push(schedule[j]);
           }
         }
       }
