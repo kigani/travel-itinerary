@@ -29,6 +29,14 @@ export class TravelDetailsService {
       .catch(this.handleError);
   }
 
+  getNearestTravelDetails(userId, limit): Promise<DailySchedule[]> {
+    const url = this.travelDetailsUrl + '?userId=' + userId + '&_sort=date&_limit=' + limit;
+    return this.http.get(url)
+      .toPromise()
+      .then(response =>  response.json())
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

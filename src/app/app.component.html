@@ -1,9 +1,12 @@
 <app-page-header></app-page-header>
-<ul>
-  <li>
-    <a routerLink="/">Matches</a>
-    <a routerLink="/calendar">Calendar</a>
-  </li>
-</ul>
-<router-outlet></router-outlet>
-
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Matches</a>
+      <a routerLink="/calendar">Calendar</a>
+    </li>
+  </ul>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

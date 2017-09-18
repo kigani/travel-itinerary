@@ -4,7 +4,7 @@ enum TravelDetailsType {
   Flight = <any>'flight',
   Accomodation = <any>'accomodation',
   Transport = <any>'transport',
-  Event = <any>'event'
+  Match = <any>'match'
 }
 
 @Component({

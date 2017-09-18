@@ -37,8 +37,8 @@
       <dt class="details-list__label">Drop off:</dt>
       <dd class="details-list__value">{{data.dropOffTime}}</dd>
     </dl>
-    <div *ngIf="data.type == travelDetailsType.Event">
-      <h3>{{data.eventName}}</h3>
+    <div *ngIf="data.type == travelDetailsType.Match">
+      <h3>{{data.name}}</h3>
       <dl class="details-list" >
         <dt class="details-list__label">Site:</dt>
         <dd class="details-list__value">{{data.site}}</dd>

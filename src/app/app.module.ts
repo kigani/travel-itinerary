@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 // Imports the Calendar module
 import { CalendarModule } from '@progress/kendo-angular-dateinputs';
 import { DayViewComponent } from './components/day-view/day-view.component';
-import { CalendarPanelComponent } from './components/calendar-panel/calendar-panel.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { TravelDetailsComponent } from './components/travel-details/travel-details.component';
@@ -28,7 +27,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DayViewComponent,
-    CalendarPanelComponent,
     PageHeaderComponent,
     TravelDetailsComponent,
     MatchesComponent,
