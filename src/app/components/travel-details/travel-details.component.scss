@@ -1,21 +1,23 @@
 @import "../../../assets/styles/shared";
 
-
-.details {
+.c-details {
   margin-bottom: 2rem;
+
   &__header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #dfe4ed;
     border-top: 1px solid #dfe4ed;
     padding: 1rem;
-    background: $color-grey;
+    background-color: $color-grey-light;
   }
 
-  &__status {
-    color: #86B519;
+  &__title {
+    @include font-size(16px);
+    text-transform: capitalize;
     font-weight: $font-weight-regular;
+    margin-bottom: 0;
+    margin-left: 5px;
 
     @include mq($until: small) {
       @include font-size(14px);

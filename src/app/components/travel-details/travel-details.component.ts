@@ -16,12 +16,14 @@ export class TravelDetailsComponent implements OnInit {
   travelDetailsType = TravelDetailsType;
   @Input() data;
   icon: string;
+  type: string;
 
   constructor() {
   }
 
   ngOnInit() {
     this.setIconClass();
+    this.type = this.data.type;
   }
 
   setIconClass(): void {
@@ -34,6 +36,9 @@ export class TravelDetailsComponent implements OnInit {
         break;
       case this.travelDetailsType.Transport:
         this.icon = 'k-i-calendar';
+        break;
+      case this.travelDetailsType.Match:
+        this.icon = 'k-i-match';
         break;
       default:
         this.icon = '';

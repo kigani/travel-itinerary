@@ -1,6 +1,6 @@
 @import "../../../assets/styles/shared";
 
-.page-header {
+.c-page-header {
   display: flex;
   align-items: center;
   margin: 1rem 0;
@@ -47,9 +47,5 @@
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-
-    &-image {
-    }
-
   }
 }

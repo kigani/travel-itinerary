@@ -1,0 +1,40 @@
+@import "../../../assets/styles/shared";
+
+.c-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.c-main-nav {
+  margin-bottom: 0;
+  &__item {
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0px;
+      bottom: 0px;
+      width: 1px;
+      background-color: rgba(0,0,0,.2);
+    }
+  }
+
+  &__link {
+    color: $color-light;
+    background: #343f56;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+
+    &--active {
+      background-color: $color-dark;
+    }
+  }
+}

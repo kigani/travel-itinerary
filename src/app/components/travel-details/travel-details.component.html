@@ -1,55 +1,54 @@
-<section class="details">
-  <header class="details__header">
-    <h2 class="details__title u-hidden">Flight</h2>
+<section class="c-details">
+  <header class="c-details__header">
     <i class="k-icon details__icon" [ngClass]="icon"></i>
-    <strong class="details__status">{{data.status}}</strong>
+    <h2 class="c-details__title">{{type}}</h2>
   </header>
   <div>
-    <dl class="details-list" *ngIf="data.type == travelDetailsType.Flight">
-      <dt class="details-list__label">From:</dt>
-      <dd class="details-list__value">{{data.from}}</dd>
-      <dt class="details-list__label">To:</dt>
-      <dd class="details-list__value">{{data.to}}</dd>
-      <dt class="details-list__label">Departure:</dt>
-      <dd class="details-list__value">{{data.departure}}</dd>
-      <dt class="details-list__label">Arrival:</dt>
-      <dd class="details-list__value">{{data.arrival}}</dd>
-      <dt class="details-list__label">Flight number:</dt>
-      <dd class="details-list__value">{{data.flightNumber}}</dd>
+    <dl class="c-details-list" *ngIf="data.type == travelDetailsType.Flight">
+      <dt class="c-details-list__label">From:</dt>
+      <dd class="c-details-list__value">{{data.from}}</dd>
+      <dt class="c-details-list__label">To:</dt>
+      <dd class="c-details-list__value">{{data.to}}</dd>
+      <dt class="c-details-list__label">Departure:</dt>
+      <dd class="c-details-list__value">{{data.departure}}</dd>
+      <dt class="c-details-list__label">Arrival:</dt>
+      <dd class="c-details-list__value">{{data.arrival}}</dd>
+      <dt class="c-details-list__label">Flight number:</dt>
+      <dd class="c-details-list__value">{{data.flightNumber}}</dd>
     </dl>
 
-    <dl class="details-list" *ngIf="data.type == travelDetailsType.Accomodation">
-      <dt class="details-list__label">Hotel:</dt>
-      <dd class="details-list__value">{{data.name}}</dd>
-      <dt class="details-list__label">Check in:</dt>
-      <dd class="details-list__value">{{data.checkInTime}}</dd>
-      <dt class="details-list__label">Check out:</dt>
-      <dd class="details-list__value">{{data.checkOutTime}}</dd>
+    <dl class="c-details-list" *ngIf="data.type == travelDetailsType.Accomodation">
+      <dt class="c-details-list__label">Hotel:</dt>
+      <dd class="c-details-list__value">{{data.name}}</dd>
+      <dt class="c-details-list__label">Check in:</dt>
+      <dd class="c-details-list__value">{{data.checkInTime}}</dd>
+      <dt class="c-details-list__label">Check out:</dt>
+      <dd class="c-details-list__value">{{data.checkOutTime}}</dd>
     </dl>
 
-    <dl class="details-list" *ngIf="data.type == travelDetailsType.Transport">
-      <dt class="details-list__label">From:</dt>
-      <dd class="details-list__value">{{data.from}}</dd>
-      <dt class="details-list__label">To:</dt>
-      <dd class="details-list__value">{{data.to}}</dd>
-      <dt class="details-list__label">Pick up:</dt>
-      <dd class="details-list__value">{{data.pickUpTime}}</dd>
-      <dt class="details-list__label">Drop off:</dt>
-      <dd class="details-list__value">{{data.dropOffTime}}</dd>
+    <dl class="c-details-list" *ngIf="data.type == travelDetailsType.Transport">
+      <dt class="c-details-list__label">From:</dt>
+      <dd class="c-details-list__value">{{data.from}}</dd>
+      <dt class="c-details-list__label">To:</dt>
+      <dd class="c-details-list__value">{{data.to}}</dd>
+      <dt class="c-details-list__label">Pick up:</dt>
+      <dd class="c-details-list__value">{{data.pickUpTime}}</dd>
+      <dt class="c-details-list__label">Drop off:</dt>
+      <dd class="c-details-list__value">{{data.dropOffTime}}</dd>
     </dl>
     <div *ngIf="data.type == travelDetailsType.Match">
       <h3>{{data.name}}</h3>
-      <dl class="details-list" >
-        <dt class="details-list__label">Site:</dt>
-        <dd class="details-list__value">{{data.site}}</dd>
-        <dt class="details-list__label">City:</dt>
-        <dd class="details-list__value">{{data.city}}</dd>
-        <dt class="details-list__label">Date:</dt>
-        <dd class="details-list__value">{{data.date}}</dd>
-        <dt class="details-list__label">Hour:</dt>
-        <dd class="details-list__value">{{data.hour}}</dd>
-        <dt class="details-list__label">Tickets:</dt>
-        <dd class="details-list__value">{{data.tickets}}</dd>
+      <dl class="c-details-list" >
+        <dt class="c-details-list__label">Site:</dt>
+        <dd class="c-details-list__value">{{data.site}}</dd>
+        <dt class="c-details-list__label">City:</dt>
+        <dd class="c-details-list__value">{{data.city}}</dd>
+        <dt class="c-details-list__label">Date:</dt>
+        <dd class="c-details-list__value">{{data.date}}</dd>
+        <dt class="c-details-list__label">Hour:</dt>
+        <dd class="c-details-list__value">{{data.hour}}</dd>
+        <dt class="c-details-list__label">Tickets:</dt>
+        <dd class="c-details-list__value">{{data.tickets}}</dd>
       </dl>
     </div>
 

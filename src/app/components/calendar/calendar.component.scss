@@ -1,12 +1,13 @@
 @import "../../../assets/styles/shared";
 
-.time-bar {
-  background-color: $color-brand-primary;
-  color: $color-light;
+.c-time-bar {
+  background-color: #c6d0e1;
+  color: $color-grey-dark;
   display: block;
   padding: 0.5rem 1rem;
   position: relative;
   text-align: center;
+  font-weight: $font-weight-bold;
 
   @include mq($until: small) {
     @include font-size(14px);
