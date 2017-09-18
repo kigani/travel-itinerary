@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {DailySchedule} from "../components/travel-details/daily-schedule";
+import {DailySchedule} from "../shared/daily-schedule";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TravelDetailsService} from "../../services/travel-details.service";
 import * as user from '../../shared/user.mock';
-import {TravelDetails} from "../travel-details/travel-details";
+import {TravelDetails} from "../../shared/travel-details";
 
 @Component({
   selector: 'app-matches',

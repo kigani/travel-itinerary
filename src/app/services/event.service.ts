@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-
-interface Event {
-  name: string;
-  timeRange: string;
-  userId: string;
-  dates: string[];
-}
+import {Event} from "../shared/event";
 
 @Injectable()
 export class EventService {
@@ -17,7 +11,6 @@ export class EventService {
   }
 
   getEvent(userId: string): Promise<Event> {
-
     return this.http.get(this.eventUrl)
       .toPromise()
       .then(response => response.json())

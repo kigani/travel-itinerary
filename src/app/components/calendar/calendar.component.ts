@@ -72,7 +72,7 @@ export class CalendarComponent implements OnInit {
   }
 
   redirect(date: string) {
-    this.router.navigate(['./daily-schedule/'+date]);
+    this.router.navigate(['./daily-schedule/'+ date]);
   }
 
   private createMonthLabel(year: number):void {
