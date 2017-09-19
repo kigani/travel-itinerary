@@ -1,0 +1,8 @@
+@import "../../../assets/styles/shared";
+
+.c-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: $color-grey;
+  vertical-align: top; //remove white space below icon
+}

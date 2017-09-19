@@ -17,6 +17,7 @@ import {EventService} from "./services/event.service";
 import { MatchesComponent } from './components/matches/matches.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { PageNavigationComponent } from './components/page-navigation/page-navigation.component';
+import { IconComponent } from './components/icon/icon.component';
 
 const appRoutes: Routes = [
   {path: '', component: MatchesComponent},
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     MatchesComponent,
     CalendarComponent,
     PageNavigationComponent,
+    IconComponent,
   ],
   imports: [
     BrowserModule,

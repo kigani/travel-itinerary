@@ -4,12 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js | ng serve --proxy-config proxy.config.json",
+    "start": "npm run icons | node server.js | ng serve --proxy-config proxy.config.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sprites": "svg-sprite --config sprite-config.json src/assets/icons/*.svg"
+    "sprites": "svg-sprite --config sprite-config.json src/assets/icons/*.svg",
+    "clean": "rimraf src/assets/icons/sprite/**",
+    "icons": "npm run clean && npm run sprites"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +32,7 @@
     "core-js": "^2.4.1",
     "inuitcss": "^6.0.0-beta.5",
     "mydatepicker": "^2.0.30",
+    "rimraf": "^2.6.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
