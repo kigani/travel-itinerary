@@ -1,6 +1,8 @@
 <section class="c-details">
   <header class="c-details__header">
-    <i class="k-icon details__icon" [ngClass]="icon"></i>
+    <svg>
+      <use attr.xlink:href="/assets/icons/sprite/icons.svg#{{icon}}"/>
+    </svg>
     <h2 class="c-details__title">{{type}}</h2>
   </header>
   <div>

@@ -1,0 +1,12 @@
+{
+  "dest": "src/assets/icons",
+  "mode": {
+    "symbol": {
+      "dest": ".",
+      "sprite": "sprite/icons.svg",
+      "example": {
+        "dest": "./sprite/example.html"
+      }
+    }
+  }
+}

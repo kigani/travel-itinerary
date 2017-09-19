@@ -29,16 +29,16 @@ export class TravelDetailsComponent implements OnInit {
   setIconClass(): void {
     switch (this.data.type) {
       case this.travelDetailsType.Flight:
-        this.icon = 'k-i-heart';
+        this.icon = 'plane';
         break;
       case this.travelDetailsType.Accomodation:
-        this.icon = 'k-i-copy';
+        this.icon = 'bed';
         break;
       case this.travelDetailsType.Transport:
-        this.icon = 'k-i-calendar';
+        this.icon = 'car';
         break;
       case this.travelDetailsType.Match:
-        this.icon = 'k-i-match';
+        this.icon = '';
         break;
       default:
         this.icon = '';
