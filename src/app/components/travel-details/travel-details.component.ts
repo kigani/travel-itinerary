@@ -38,7 +38,7 @@ export class TravelDetailsComponent implements OnInit {
         this.icon = 'car';
         break;
       case this.travelDetailsType.Match:
-        this.icon = '';
+        this.icon = 'pitch';
         break;
       default:
         this.icon = '';

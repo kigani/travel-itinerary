@@ -4,5 +4,10 @@
   width: 1.5rem;
   height: 1.5rem;
   fill: $color-grey;
-  vertical-align: top; //remove white space below icon
+  vertical-align: middle;
+
+  &--small {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
 }

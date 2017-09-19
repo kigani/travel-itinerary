@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm run icons | node server.js | ng serve --proxy-config proxy.config.json",
+    "start": "node server.js | npm run icons | ng serve --proxy-config proxy.config.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -34,6 +34,7 @@
     "mydatepicker": "^2.0.30",
     "rimraf": "^2.6.2",
     "rxjs": "^5.4.2",
+    "svgxuse": "^1.2.4",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
