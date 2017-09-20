@@ -1,6 +1,10 @@
 <ng-container *ngIf="dailySchedule;else no_results">
-  <h2 class="c-time-bar">
-    Russia - New Zealand
+  <h2>
+    {{matchName}}
+    <time>
+      {{currentDate}}, {{matchTime}}
+    </time>
+    {{matchCity}}
   </h2>
   <section *ngFor="let item of dailySchedule">
     <app-travel-details [data]="item"></app-travel-details>

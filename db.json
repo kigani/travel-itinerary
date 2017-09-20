@@ -27,6 +27,14 @@
           "pickUpTime": "12:20",
           "dropOffTime": "12:20",
           "serviceType": "pool"
+        },
+        {
+          "type": "match",
+          "name": "Scotland - New Zealand",
+          "site": "Moscow arena",
+          "city": "Moscow",
+          "hour": "14:00",
+          "tickets": 1
         }
       ]
     },
@@ -81,6 +89,23 @@
           "pickUpTime": "12:20",
           "dropOffTime": "12:20",
           "serviceType": "pool"
+        },
+        {
+          "type": "transport",
+          "status": "Confirmed",
+          "from": "Moscow Airport",
+          "to": "Hotel",
+          "pickUpTime": "12:20",
+          "dropOffTime": "12:20",
+          "serviceType": "pool"
+        },
+        {
+          "type": "match",
+          "name": "England - New Zealand",
+          "site": "Moscow arena",
+          "city": "Moscow",
+          "hour": "17:00",
+          "tickets": 2
         },
         {
           "type": "transport",

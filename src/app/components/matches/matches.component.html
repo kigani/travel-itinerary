@@ -1,9 +1,27 @@
-<ul class="o-list-bare">
-  <li class="o-list-bare__item" *ngFor="let match of matches">
-    <h2>
-      <a [routerLink]="['/daily-schedule', match.date]">{{match.name}}</a>
-    </h2>
-    {{match.date}}, {{match.hour}}<br>
-    {{match.city}}
+<div class="c-info-box">
+  Dear Mr. X,
+  <br><br>
+  Your registration form has been successfully submited. We are currently processing your request. Details of your trip will be send for confirmation to your email and also will be visible on this site.
+  <br><br>
+  Below you will find the list of your chosen matches.
+</div>
+<ul class="o-list-bare c-tiles">
+  <li class="o-list-bare__item o-pack o-pack--auto o-pack--middle c-tile" *ngFor="let match of matches">
+    <div class="o-pack__item">
+      <h2 class="c-tile__title">{{match.name}}</h2>
+      <div class="c-tile__body">
+        {{match.date}}, {{match.hour}}<br>
+        {{match.city}}
+      </div>
+    </div>
+    <a class="o-pack__item c-tile__link" [routerLink]="['/daily-schedule', match.date]" [queryParams]="{ name: match.name, hour: match.hour, city: match.city }">
+      <app-icon iconName="map" className="c-icon--big"></app-icon>
+      <br>
+      <span>Travel details</span>
+    </a>
   </li>
 </ul>
+<footer class="o-block">
+  <strong class="o-block__body c-download-info">You can download all data as PDF</strong>
+  <app-link-button text="Download PDF"></app-link-button>
+</footer>

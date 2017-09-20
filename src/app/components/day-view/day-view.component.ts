@@ -14,6 +14,11 @@ export class DayViewComponent implements OnInit {
   dailySchedule: TravelDetails[];
   dateChangeSubscription: Subscription;
   pageChangeSubscription: Subscription;
+  matchDetailsSubscription: Subscription;
+  matchDate: string;
+  matchName: string;
+  matchTime: string;
+  matchCity: string;
   constructor(private travelDetailsService: TravelDetailsService,  private route: ActivatedRoute) {
   }
 
@@ -26,12 +31,20 @@ export class DayViewComponent implements OnInit {
 
     this.pageChangeSubscription = this.route.params.subscribe(params => {
      this.getDailySchedule(user.userId, params['id'])
+      this.matchDate =  params['id'];
+    });
+
+    this.matchDetailsSubscription = this.route.queryParams.subscribe(params=> {
+      this.matchName = params["name"];
+      this.matchTime = params["hour"];
+      this.matchCity = params["city"];
     });
   }
 
   ngOnDestroy() {
     this.dateChangeSubscription.unsubscribe();
     this.pageChangeSubscription.unsubscribe();
+    this.matchDetailsSubscription.unsubscribe();
   }
 
   getDailySchedule(userId, date): void {
