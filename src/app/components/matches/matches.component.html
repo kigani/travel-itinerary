@@ -10,7 +10,7 @@
     <div class="o-pack__item">
       <h2 class="c-tile__title">{{match.name}}</h2>
       <div class="c-tile__body">
-        {{match.date}}, {{match.hour}}<br>
+        {{match.date | date: 'dd/MM/yyyy'}}, {{match.hour}}<br>
         {{match.city}}
       </div>
     </div>
@@ -21,7 +21,6 @@
     </a>
   </li>
 </ul>
-<footer class="o-block">
-  <strong class="o-block__body c-download-info">You can download all data as PDF</strong>
-  <app-link-button text="Download PDF"></app-link-button>
+<footer>
+  <app-action-box bodyText="You can download all data as PDF" buttonText="Download PDF"></app-action-box>
 </footer>

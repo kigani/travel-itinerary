@@ -1,0 +1,12 @@
+@import "../../../assets/styles/shared";
+
+//TODO: change name + create seperate component for header(?)
+.c-header {
+  @include font-size(14px);
+  background-color: #c6d0e1;
+  color:$color-grey-dark;
+  padding: 0.5rem 1rem;
+  position: relative;
+  text-align: center;
+  margin-bottom: 0;
+}

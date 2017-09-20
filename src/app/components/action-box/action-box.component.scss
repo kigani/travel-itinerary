@@ -1,0 +1,8 @@
+@import "../../../assets/styles/shared";
+
+.c-action-box {
+  &__text {
+    font-weight: $font-weight-regular;
+    margin-bottom: 0.8rem;
+  }
+}

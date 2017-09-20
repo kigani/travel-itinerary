@@ -1,14 +1,19 @@
 <ng-container *ngIf="dailySchedule;else no_results">
-  <h2>
-    {{matchName}}
+<section>
+  <h2 class="c-header">
+    {{matchName}}<br>
     <time>
-      {{currentDate}}, {{matchTime}}
+      {{matchDate | date: 'dd/MM/yyyy'}}, {{matchTime}}
     </time>
     {{matchCity}}
   </h2>
   <section *ngFor="let item of dailySchedule">
     <app-travel-details [data]="item"></app-travel-details>
   </section>
+  <footer>
+    <app-action-box buttonText="Next match day" bodyText="That's all for {{matchDate | date: 'EEEE'}}, {{matchDate | date: 'dd/MM/yyyy'}}"></app-action-box>
+  </footer>
+</section>
 </ng-container>
 <ng-template #no_results>
   <div>No results for that day...</div>
