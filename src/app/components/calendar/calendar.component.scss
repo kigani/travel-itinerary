@@ -1,6 +1,7 @@
 @import "../../../assets/styles/shared";
 
 .c-time-bar {
+  @include font-size(14px);
   background-color: #c6d0e1;
   color: $color-grey-dark;
   display: block;

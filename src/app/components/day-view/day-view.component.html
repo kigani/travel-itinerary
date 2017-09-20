@@ -1,7 +1,12 @@
-<ul class="o-list-bare" *ngIf="dailySchedule;else no_results">
-  <li class="o-list-bare__item" *ngFor="let item of dailySchedule">
+<ng-container *ngIf="dailySchedule;else no_results">
+  <h2 class="c-time-bar">
+    Russia - New Zealand
+  </h2>
+  <section *ngFor="let item of dailySchedule">
     <app-travel-details [data]="item"></app-travel-details>
-  </li>
-</ul>
-<ng-template #no_results>No results for that day...</ng-template>
+  </section>
+</ng-container>
+<ng-template #no_results>
+  <div>No results for that day...</div>
+</ng-template>
 

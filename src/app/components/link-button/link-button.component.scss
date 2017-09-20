@@ -1,0 +1,13 @@
+@import "../../../assets/styles/shared";
+
+.c-button {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 4px;
+  @include font-size(12px);
+  text-transform: uppercase;
+  background-color: #d7deea;
+  border: none;
+  text-decoration: none;
+}

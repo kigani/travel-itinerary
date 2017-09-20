@@ -1,15 +1,19 @@
 @import "../../../assets/styles/shared";
 
 .c-details {
-  margin-bottom: 2rem;
+
+  &__content {
+    padding: 1rem;
+  }
 
   &__header {
     display: flex;
     align-items: center;
+    background-color: $color-grey-light;
     border-bottom: 1px solid #dfe4ed;
     border-top: 1px solid #dfe4ed;
+    line-height: 1;
     padding: 1rem;
-    background-color: $color-grey-light;
   }
 
   &__title {
@@ -24,11 +28,16 @@
     }
   }
 
+  &__subtitle {
+    @include font-size(16px);
+    color: $color-dark;
+    margin-bottom: 1rem;
+  }
+
   &-list {
     @include font-size(14px);
     color: $color-dark;
     overflow: hidden;
-    padding: 1rem;
     margin-bottom: 0;
 
     &__label,
@@ -42,8 +51,9 @@
       clear: left;
       font-weight: $font-weight-bold;
     }
-    &__value {
+  }
 
-    }
+  &__footer {
+    margin: 0 1rem 2rem;
   }
 }
