@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {TravelDetailsService} from "../../services/travel-details.service";
 import {TravelDetails} from "../../shared/travel-details";
 import * as user from '../../shared/user.mock';
 import {Subscription} from "rxjs/Subscription";
 import { ActivatedRoute } from '@angular/router';
+import {DailySchedule} from "../../shared/daily-schedule";
 
 @Component({
   selector: 'app-day-view',
@@ -11,49 +12,44 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./day-view.component.scss']
 })
 export class DayViewComponent implements OnInit {
-  dailySchedule: TravelDetails[];
-  dateChangeSubscription: Subscription;
   pageChangeSubscription: Subscription;
-  matchDetailsSubscription: Subscription;
-  matchDate: string;
-  matchName: string;
-  matchTime: string;
-  matchCity: string;
+  isMatchToday: boolean = false;
+  itineraries: DailySchedule[] = [];
+  matchDetails: TravelDetails;
+  @Input() isSingleDayView: boolean = true;
+
   constructor(private travelDetailsService: TravelDetailsService,  private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.dateChangeSubscription = this.travelDetailsService.travelDetailsData.subscribe(e => {
-      if(e != null) {
-        this.getDailySchedule(user.userId, e);
+    this.pageChangeSubscription = this.route.params.subscribe(params => {
+      if(params['id']) {
+        this.getDailySchedule(user.userId, params['id'], null);
+      } else {
+        this.getDailySchedule(user.userId, null, 2);
       }
     });
-
-    this.pageChangeSubscription = this.route.params.subscribe(params => {
-     this.getDailySchedule(user.userId, params['id'])
-      this.matchDate =  params['id'];
-    });
-
-    this.matchDetailsSubscription = this.route.queryParams.subscribe(params=> {
-      this.matchName = params["name"];
-      this.matchTime = params["hour"];
-      this.matchCity = params["city"];
-    });
   }
 
-  ngOnDestroy() {
-    this.dateChangeSubscription.unsubscribe();
+  ngOnDestroy(): void {
     this.pageChangeSubscription.unsubscribe();
-    this.matchDetailsSubscription.unsubscribe();
   }
 
-  getDailySchedule(userId, date): void {
-     this.travelDetailsService.getTravelDetails(userId, date).then(travelDetails => {
-        if(travelDetails.length) {
-          this.dailySchedule = travelDetails[0].schedule;
-        } else {
-          this.dailySchedule = null;
-        }
-     });
+  private getDailySchedule(userId, date, limit): void {
+    this.travelDetailsService.getTravelDetails(userId, date, limit).then(travelDetails => {
+      return Promise.all(Object.keys(travelDetails).map((i)=> {
+          return this.itineraries.push(travelDetails[i]);
+      }));
+    }).then((result)=> {
+      if(this.isSingleDayView && date) {
+        let schedule = this.itineraries[0].schedule;
+        return Promise.all(Object.keys(schedule).map((i)=> {
+          if(schedule[i].type === "match") {
+            this.isMatchToday = true;
+            return this.matchDetails = schedule[i];
+          }
+        }));
+      }
+    });
   }
 }

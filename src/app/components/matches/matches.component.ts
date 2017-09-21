@@ -10,15 +10,17 @@ import {TravelDetails} from "../../shared/travel-details";
 })
 export class MatchesComponent implements OnInit {
   matches: TravelDetails[] = [];
+  isMatchToday: boolean = true;
+
   constructor(private travelDetailsService: TravelDetailsService) { }
 
   ngOnInit() {
    this.getDetails(user.userId)
   }
 
-  getDetails(userId): void {
+  private getDetails(userId): void {
     let list: string[] = [];
-    this.travelDetailsService.getAllTravelDetails(userId).then(travelDetails => {
+    this.travelDetailsService.getTravelDetails(userId).then(travelDetails => {
       for(var i in travelDetails) {
        var schedule = travelDetails[i].schedule;
         for(var j in schedule) {

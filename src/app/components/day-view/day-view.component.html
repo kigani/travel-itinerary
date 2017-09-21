@@ -1,21 +1,31 @@
-<ng-container *ngIf="dailySchedule;else no_results">
-<section>
-  <h2 class="c-header">
-    {{matchName}}<br>
+<ng-container *ngIf="itineraries.length;else no_results">
+<section  *ngFor="let itinerary of itineraries">
+  <h2 class="c-header" *ngIf="isMatchToday && isSingleDayView; else no_match">
+    {{matchDetails.name}}<br>
     <time>
-      {{matchDate | date: 'dd/MM/yyyy'}}, {{matchTime}}
+      {{itinerary.date | date: 'dd/MM/yyyy'}}, {{matchDetails.hour}}
     </time>
-    {{matchCity}}
+    {{matchDetails.city}}
   </h2>
-  <section *ngFor="let item of dailySchedule">
+  <ng-template #no_match>
+    <h2 class="c-header">
+      <time>
+        <span>{{itinerary.date |  date: 'EEEE'}}</span><br>
+        <span>{{itinerary.date | date: 'dd/MM/yyyy'}}</span>
+      </time>
+    </h2>
+  </ng-template>
+  <section *ngFor="let item of itinerary.schedule">
     <app-travel-details [data]="item"></app-travel-details>
   </section>
-  <footer>
-    <app-action-box buttonText="Next match day" bodyText="That's all for {{matchDate | date: 'EEEE'}}, {{matchDate | date: 'dd/MM/yyyy'}}"></app-action-box>
+  <footer *ngIf="isSingleDayView">
+    <app-action-box buttonText="Next match day" bodyText="That's all for {{itinerary.date | date: 'EEEE'}}, {{itinerary.date | date: 'dd/MM/yyyy'}}"></app-action-box>
   </footer>
 </section>
 </ng-container>
+
 <ng-template #no_results>
   <div>No results for that day...</div>
 </ng-template>
+
 

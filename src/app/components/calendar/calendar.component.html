@@ -1,14 +1,6 @@
 <my-date-picker #mydp class="datepicker" name="mydate" [options]="myDatePickerOptions"  (dateChanged)="onDateChanged($event)" (calendarViewChanged)="onCalendarViewChanged($event)"></my-date-picker>
+<app-day-view [isSingleDayView]="false"></app-day-view>
 
-<section *ngFor="let itinerary of itineraries">
-  <h2 class="c-time-bar">
-    <time>
-      <span>{{itinerary.date |  date: 'EEEE'}}</span><br>
-      <span>{{itinerary.date | date: 'dd/MM/yyyy'}}</span>
-    </time>
-  </h2>
-  <section *ngFor="let item of itinerary.schedule">
-    <app-travel-details [data]="item"></app-travel-details>
-  </section>
-</section>
+
+
 
