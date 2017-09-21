@@ -14,7 +14,7 @@
         {{match.city}}
       </div>
     </div>
-    <a class="o-pack__item c-tile__link" [routerLink]="['/daily-schedule', match.date]" [queryParams]="{ name: match.name, hour: match.hour, city: match.city }">
+    <a class="o-pack__item c-tile__link" [routerLink]="['/daily-schedule', match.date]" (click)="goToDetails">
       <app-icon iconName="map" className="c-icon--big"></app-icon>
       <br>
       <span>Travel details</span>

@@ -19,7 +19,8 @@
     <app-travel-details [data]="item"></app-travel-details>
   </section>
   <footer *ngIf="isSingleDayView">
-    <app-action-box buttonText="Next match day" bodyText="That's all for {{itinerary.date | date: 'EEEE'}}, {{itinerary.date | date: 'dd/MM/yyyy'}}"></app-action-box>
+    <!-- TODO: add service to share click event between components -->
+    <app-action-box buttonText="Next match day" bodyText="That's all for {{itinerary.date | date: 'EEEE'}}, {{itinerary.date | date: 'dd/MM/yyyy'}}" linkUrl="/daily-schedule/{{this.nextDate}}" (click)="goToNextDay($event)"></app-action-box>
   </footer>
 </section>
 </ng-container>

@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+
 import {DailySchedule} from "../shared/daily-schedule";
 
 @Injectable()
 export class TravelDetailsService {
   private travelDetailsUrl: string = 'api/travelDetails';
+  travelDetailsData: BehaviorSubject<string>;
 
   constructor(private http: Http) {
+    this.travelDetailsData = new BehaviorSubject<string>('');
   }
 
   getTravelDetails(userId, date?: string, limit?: number): Promise<DailySchedule[]> {

@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ActionBoxComponent implements OnInit {
   @Input() buttonText: string;
   @Input() bodyText: string;
+  @Input() linkUrl: string;
   constructor() { }
 
   ngOnInit() {

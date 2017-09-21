@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {TravelDetailsService} from "../../services/travel-details.service";
 import * as user from '../../shared/user.mock';
 import {TravelDetails} from "../../shared/travel-details";
@@ -20,7 +21,8 @@ export class MatchesComponent implements OnInit {
 
   private getDetails(userId): void {
     let list: string[] = [];
-    this.travelDetailsService.getTravelDetails(userId).then(travelDetails => {
+    this.travelDetailsService.getTravelDetails(userId)
+      .then(travelDetails => {
       for(var i in travelDetails) {
        var schedule = travelDetails[i].schedule;
         for(var j in schedule) {
@@ -30,6 +32,12 @@ export class MatchesComponent implements OnInit {
           }
         }
       }
+      return this.matches;
+    })
+    .then(matches => {
+      return matches.sort((a, b)=> {
+        return b.date > a.date ? -1 : b.date < a.date ? 1 : 0;
+      });
     });
   }
 }
