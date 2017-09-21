@@ -36,19 +36,18 @@ export class DayViewComponent implements OnInit {
   }
 
   private getDailySchedule(userId, date, limit): void {
-    this.travelDetailsService.getTravelDetails(userId, date, limit).then(travelDetails => {
-      return Promise.all(Object.keys(travelDetails).map((i)=> {
-          return this.itineraries.push(travelDetails[i]);
-      }));
+    this.travelDetailsService.getTravelDetails(userId, date, limit)
+      .then(travelDetails => {
+          return this.itineraries = travelDetails;
     }).then((result)=> {
       if(this.isSingleDayView && date) {
-        let schedule = this.itineraries[0].schedule;
-        return Promise.all(Object.keys(schedule).map((i)=> {
+        let schedule = result[0].schedule;
+        for(let i in schedule) {
           if(schedule[i].type === "match") {
             this.isMatchToday = true;
             return this.matchDetails = schedule[i];
           }
-        }));
+        }
       }
     });
   }
